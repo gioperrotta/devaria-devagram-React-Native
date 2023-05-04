@@ -13,18 +13,46 @@ import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 import communStyles from '../../communStyles'
-import { validateConfirmPassword, validateEmail, validateName, validatePassword } from '../../_utils/validations';
+import { validateConfirmPassword, validateEmail, validateName, validatePassword } from '../../_utils/validations'
+import * as UserService from '../../_services/UserService';
 
 const Register = () => {
   type navigationTypes = NativeStackNavigationProp<RootSatckParamList, 'Register'>
   const navigation = useNavigation<navigationTypes>();
 
-  const [error, setError] = useState<string>('Senha inválida');
+  const [error, setError] = useState<string>('');
   const [image, setImage] = useState<any>(null);
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const onRegister = async () => {
+    try {
+      setLoading(true)
+      const body = new FormData()
+      body.append("nome", name)
+      body.append("email", email)
+      body.append("senha", password)
+      if (image) {
+        const file: any = {
+          uri: image.uri,
+          type: `image/${image.uri.split('/').pop().split('.').pop()}`,
+          name: image.uri.split('/').pop()
+        }
+      body.append("file", file)       
+      }
+      await UserService.register(body)
+      await UserService.login({ email, senha: password })
+      navigation.navigate('Home')
+      setLoading(false)
+    } catch (error) {
+      console.log('error')
+      setError('Erro ao efetuar Cadastro, tente Novamnete')
+      setLoading(false)
+    }
+  }
 
   const formIsValid = () => {
     const nameIsValid = validateName(name)
@@ -39,7 +67,7 @@ const Register = () => {
     } else if (!passwordIsValid && password !== '') {
       setError('Senha Inválido')
     } else if (!confirmPasswordIsValid && confirmPassword !== '') {
-      setError('COnfirmação de senha não confere')
+      setError('Confirmação de senha não confere')
     } else { setError('')}
     return nameIsValid && emailIsValid && passwordIsValid && confirmPasswordIsValid
   }
@@ -84,9 +112,9 @@ const Register = () => {
         onChangeText={(e: string) => { setConfirmPassword(e) }}
       />
       <Button
-        onPress={() => { }}
+        onPress={() => onRegister()}
         placeholder='Cadastrar'
-        loading={false}
+        loading={loading}
         disabled={disableButton()}
       />
       <View style={styles.containerWithOutAccount}>

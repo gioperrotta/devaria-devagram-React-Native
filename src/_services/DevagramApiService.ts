@@ -1,7 +1,7 @@
 import axios, { Method } from "axios"
 import  AsyncStorage from "@react-native-async-storage/async-storage"
 
-const URL = 'https://devaria-devagram-api.vercel.app/api'
+const URL = 'https://devaria-devagram-2dowgfc4x-gioperrotta.vercel.app/api'
 
 const instance = axios.create({
   baseURL: URL,
@@ -14,7 +14,7 @@ export const api = async (endpoint: string, method: Method, body?:  any, newHead
   let headers: any = newHeaders ? newHeaders : {'Content-type' : 'application/json'}
 
   if (token) {
-    headers['Authorization'] = 'Bearer' + token
+    headers['Authorization'] = 'Bearer ' + token
   }
 
   console.log(`executando: ${URL}${endpoint}, method ${method}, body ${JSON.stringify(body)}, header ${JSON.stringify(headers)}`)

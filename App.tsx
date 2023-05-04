@@ -3,7 +3,6 @@ import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/_routes';
 
-
 export default function App() {
 
   const [fontsLoaded] = useFonts({

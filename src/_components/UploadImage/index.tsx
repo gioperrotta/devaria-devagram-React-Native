@@ -2,7 +2,6 @@ import { Image, TouchableOpacity, View } from "react-native"
 import * as ImagePicker from "expo-image-picker"
 import styles from "./styles"
 
-
 const UploadImage = (props: {
   setImage: (image: ImagePicker.ImagePickerResult | null) => void,
   // image: ImagePicker.ImagePickerResult | null
@@ -16,7 +15,7 @@ const UploadImage = (props: {
       aspect: [4, 3],
       quality: 1
     })
-    if (!result.canceled) {
+    if (!result.cancelled) {
       props.setImage(result)
     }
   }
