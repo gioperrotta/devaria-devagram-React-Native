@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ActivityIndicator, FlatList, View } from "react-native"
+import { ActivityIndicator, Alert, FlatList, View } from "react-native"
 import { IUserData } from "../../_services/UserService/types"
 import * as FeedService from "../../_services/FeedService"
 import { IPost } from "./Post/types"
@@ -44,8 +44,9 @@ const Feed = (props: { isProfileFeed?: boolean, profile?: IUserData }) => {
         setPosts(postsFormated)
         setLoading(false)
       } catch (error) {
-
         setLoading(false)
+        console.log(error)
+        Alert.alert('Erro', 'Erro ao carregar o Feed ' + error)
       }
     }
   }
@@ -55,7 +56,6 @@ const Feed = (props: { isProfileFeed?: boolean, profile?: IUserData }) => {
     navigation.addListener('focus', () => {
       loadPosts()
     })
-
   }, [props])
 
   return (
@@ -74,7 +74,6 @@ const Feed = (props: { isProfileFeed?: boolean, profile?: IUserData }) => {
             null
         )}
       />
-
     </View>
   )
 }

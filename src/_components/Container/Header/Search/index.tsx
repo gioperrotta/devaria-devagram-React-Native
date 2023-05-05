@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react"
-import { ActivityIndicator, FlatList, Image, Text, TouchableOpacity, View } from "react-native"
+import { ActivityIndicator, FlatList, Text, TouchableOpacity, View } from "react-native"
 import { IUserData } from "../../../../_services/UserService/types"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
@@ -7,6 +7,7 @@ import { RootSatckParamList } from "../../../../_routes/RootStackParams"
 import * as UserService from "../../../../_services/UserService"
 import { colors } from "../../../../../app.json"
 import styles from "./styles"
+import Avatar from "../../../Feed/Avatar"
 
 const Search = (props: { filter: string }) => {
   
@@ -51,10 +52,7 @@ const Search = (props: { filter: string }) => {
     <TouchableOpacity style={user.index % 2 === 0 ? styles.backgroundPair : styles.backgroundOdd}>
       <View style={styles.row}>
         <View>
-          {<Image
-            style={styles.imageUser}
-            source={user.avatar ? { uri: user.avatar } : require('../../../../_assets/images/user.png')}
-          />}
+          <Avatar user={user}/>
         </View>
         <View>
           <Text style={styles.name}>{user.name}</Text>

@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet, } from "react-native"
-import {colors} from "../../../../app.json"
+import { colors } from "../../../../app.json"
 
 const { height, width } = Dimensions.get('screen')
 
@@ -13,19 +13,14 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginBottom: 20
   },
-  userImage: {
-    width: 32,
-    height: 32,
-    borderRadius: 10
-  },
-  textUserName:{
+  textUserName: {
     marginLeft: 8,
     fontFamily: 'biennaleBold',
     fontSize: 12,
     color: colors.grayColor04
   },
   postImage: {
-    height: height/2,
+    height: height / 2,
     width
   },
 
@@ -35,17 +30,37 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 16,
   },
-  icon:{
+  icon: {
     marginLeft: 12
   },
   textLiked: {
     marginLeft: 12,
     fontSize: 10,
+    fontFamily: 'biennale',
     color: colors.grayColor04,
-    fontFamily: 'biennale'
   },
   textLikedBold: {
     fontFamily: 'biennaleBold'
+  },
+
+  containerDescription: {
+    marginTop: 10,
+    marginHorizontal: 16,
+    flexDirection: "row"
+  },
+  textDescription : {
+    width: width/1.8,
+    fontSize: 12,
+    fontFamily: 'biennale',
+    color: colors.grayColor04,
+  },
+  containerMoreOrLess: {
+    alignItems: "flex-end",
+    justifyContent: "flex-end"
+  },
+  textMoreOrLess: {
+    fontSize: 12,
+    color:colors.greenWaterColor
   }
 
 })

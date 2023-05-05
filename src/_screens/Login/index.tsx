@@ -40,7 +40,7 @@ const Login = () => {
   },[])
 
   useEffect(() => {
-    // verifyLogged()
+     verifyLogged()
   }, [])
 
   return (
