@@ -2,10 +2,10 @@ import { useState } from "react"
 import { Alert, Text, TextInput, View } from "react-native"
 import { IComentsProps, IComment } from "./types"
 import styles from "./styles"
-import Avatar from "../Avatar"
-import { IUser } from "../../../_services/UserService/types"
+
 
 import * as FeedService from '../../../_services/FeedService'
+import Avatar from "../../Avatar"
 
 const Comments = (props: IComentsProps) => {
 

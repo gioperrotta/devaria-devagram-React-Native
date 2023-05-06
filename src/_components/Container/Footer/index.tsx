@@ -23,7 +23,7 @@ const Footer = (props: IFooter) => {
     },
     {
       title: 'Profile',
-      onPress: () => { navigation.navigate('Profile') },
+      onPress: () => { navigation.navigate('Profile' ) },
       icon: require('../../../_assets/images/user.png'),
       iconActivated: require('../../../_assets/images/userAtivo.png'),
     }

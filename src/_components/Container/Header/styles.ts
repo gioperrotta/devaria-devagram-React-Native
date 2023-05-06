@@ -45,8 +45,29 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     fontFamily: 'biennale',
     color: colors.primaryColor
-
   },
+  containerProfile: {
+    flexDirection: "row",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginHorizontal: 16
+   },
+   textName: {
+    fontFamily: 'biennaleBold',
+   },
+   textCancel: {
+    color: colors.grayColor03,
+    fontFamily: 'biennale',
+    fontSize: 12,
+    fontWeight: "500"
+   },
+   textSubmit: {
+    color: colors.primaryColor,
+    fontFamily: 'biennale',
+    fontSize: 12,
+    fontWeight: "700"
+   }
 })
 
 export default styles

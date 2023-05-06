@@ -5,9 +5,10 @@ import { useEffect, useState } from "react"
 import { getCurrentUser } from "../../../_services/UserService"
 import { IUser } from "../../../_services/UserService/types"
 import Comments from "../Comments"
-import Avatar from "../Avatar"
+
 
 import * as FeedService from '../../../_services/FeedService'
+import Avatar from "../../Avatar"
 
 
 const Post = (props: { post: IPost }) => {

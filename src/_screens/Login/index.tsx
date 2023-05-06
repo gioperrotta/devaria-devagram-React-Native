@@ -1,5 +1,5 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Button from '../../_components/Button';
 import Input from '../../_components/Input';
@@ -18,7 +18,7 @@ const Login = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
- 
+
   const onLogin = async () => {
     try {
       setLoading(true)
@@ -26,21 +26,20 @@ const Login = () => {
       navigation.navigate('Home')
       setLoading(false)
     } catch (error) {
-      console.log('error')
       setError('Erro ao efetuar Login, tente Novamnete')
       setLoading(false)
     }
   }
 
-  const verifyLogged = useCallback(async () => {
+  const verifyLogged = async () => {
     const user = await UserService.getCurrentUser()
     if (user?.token) {
       navigation.navigate('Home')
-    }    
-  },[])
+    }
+  }
 
   useEffect(() => {
-     verifyLogged()
+    verifyLogged()
   }, [])
 
   return (

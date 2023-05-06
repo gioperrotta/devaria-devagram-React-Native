@@ -5,6 +5,6 @@ export type RootSatckParamList = {
   Register: undefined;
   Home: undefined;
   NewPublication: undefined;
-  Profile: IUserData | IUser;
-
+  Profile: IUserData | IUser | undefined;
+  EditProfile: IUserData | IUser | undefined;
 }

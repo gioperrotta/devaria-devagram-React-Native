@@ -7,10 +7,11 @@ import { RootSatckParamList } from "../../../../_routes/RootStackParams"
 import * as UserService from "../../../../_services/UserService"
 import { colors } from "../../../../../app.json"
 import styles from "./styles"
-import Avatar from "../../../Feed/Avatar"
+import Avatar from "../../../Avatar"
+
 
 const Search = (props: { filter: string }) => {
-  
+
   const [loading, setLoading] = useState<boolean>(false)
   const [users, setUsers] = useState<IUserData[]>([])
 
@@ -28,9 +29,10 @@ const Search = (props: { filter: string }) => {
           name: user.nome,
           email: user.email,
           avatar: user.avatar,
+          posts: user.publicacoes,
           followers: user.seguidores,
           following: user.seguindo,
-          posts: user.publicacoes
+          followThisUser: !data.degueEsseUsuario ? data.degueEsseUsuario : false
         }
         return userFormated
       })
@@ -49,10 +51,13 @@ const Search = (props: { filter: string }) => {
   }, [props.filter])
 
   const renderItem = (user: IUserData) => (
-    <TouchableOpacity style={user.index % 2 === 0 ? styles.backgroundPair : styles.backgroundOdd}>
+    <TouchableOpacity
+      style={(user.index && user.index % 2) === 0 ? styles.backgroundPair : styles.backgroundOdd}
+      onPress={() => {}}
+    >
       <View style={styles.row}>
         <View>
-          <Avatar user={user}/>
+          <Avatar user={user} />
         </View>
         <View>
           <Text style={styles.name}>{user.name}</Text>

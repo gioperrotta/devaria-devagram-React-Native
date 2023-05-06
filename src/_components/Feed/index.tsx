@@ -27,8 +27,11 @@ const Feed = (props: { isProfileFeed?: boolean, profile?: IUserData }) => {
             image: post.foto,
             description: post.descricao,
             user: {
-              name: post.user.nome,
-              avatar: post.user.avatar,
+              id: post.userId,
+              name: post?.user?.nome || props.profile?.name,
+              avatar: post?.user?.avatar || props.profile?.avatar,
+              email: '',
+              token: ''
             },
             comments: post.comentarios.map((c: any) => {
               return {
