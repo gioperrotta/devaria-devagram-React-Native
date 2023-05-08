@@ -66,16 +66,40 @@ const Header = (props: IHeader) => {
         <View style={styles.containerProfile}>
           <View>
 
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Text style={styles.textCancel}>Cancelar</Text>
-              </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Text style={styles.textCancel}>Cancelar</Text>
+            </TouchableOpacity>
 
           </View>
           <Text style={styles.textName}>Editar Perfil</Text>
           <View>
-              <TouchableOpacity onPress={() => props.editProfileHeader?.submit()}>
-                <Text style={styles.textSubmit}>Concluir</Text>
-              </TouchableOpacity>
+            <TouchableOpacity onPress={() => props.editProfileHeader?.submitEnable && props.editProfileHeader?.submit()}>
+              <Text
+                style={props.editProfileHeader?.submitEnable ? styles.textSubmit : styles.textSubmitDisabled}
+              >
+                Concluir</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      }
+      {
+        props.publicationHeader &&
+        <View style={styles.containerProfile}>
+          <View>
+
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Text style={styles.textCancel}>Cancelar</Text>
+            </TouchableOpacity>
+
+          </View>
+          <Text style={styles.textName}>Nova Publicação</Text>
+          <View>
+            <TouchableOpacity onPress={() => props.publicationHeader?.submitEnable && props.publicationHeader?.submit()}>
+              <Text
+                style={props.publicationHeader?.submitEnable ? styles.textSubmit : styles.textSubmitDisabled}
+              >
+                Compartilhar</Text>
+            </TouchableOpacity>
           </View>
         </View>
       }

@@ -15,7 +15,7 @@ const Search = (props: { filter: string }) => {
   const [loading, setLoading] = useState<boolean>(false)
   const [users, setUsers] = useState<IUserData[]>([])
 
-  type navigationTypes = NativeStackNavigationProp<RootSatckParamList, 'Login'>
+  type navigationTypes = NativeStackNavigationProp<RootSatckParamList, 'Home'>
   const navigation = useNavigation<navigationTypes>()
 
   const findUsers = useCallback(async (filter: string) => {
@@ -53,7 +53,7 @@ const Search = (props: { filter: string }) => {
   const renderItem = (user: IUserData) => (
     <TouchableOpacity
       style={(user.index && user.index % 2) === 0 ? styles.backgroundPair : styles.backgroundOdd}
-      onPress={() => {}}
+      onPress={() => navigation.navigate('Profile', user)}
     >
       <View style={styles.row}>
         <View>

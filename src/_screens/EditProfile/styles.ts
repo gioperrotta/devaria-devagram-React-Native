@@ -19,21 +19,21 @@ const styles = StyleSheet.create({
       alignItems: 'flex-end'
   },
   textName: {
-      fontFamily: 'biennaleRegular',
+      fontFamily: 'biennale',
       fontSize: 14,
       fontWeight: '400',
       color: colors.grayColor03,
       marginRight: 16
   },
   input: {
-      fontFamily: 'biennaleRegular',
+      fontFamily: 'biennale',
       fontWeight: '500',
       color: colors.grayColor04,
       width: width/1.5,
       height: height/50,
   },
   textNameUser: {
-      fontFamily: 'biennaleRegular',
+      fontFamily: 'biennale',
       fontWeight: '600',
       color: colors.grayColor04,
   },
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   textUpdateImage: {
       fontSize: 13,
       color: colors.primaryColor,
-      fontFamily: 'biennaleRegular',
+      fontFamily: 'biennale',
       fontWeight: '500',
       textDecorationLine: "underline",
       marginBottom: 16,

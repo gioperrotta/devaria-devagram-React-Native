@@ -1,8 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Alert, Text, TextInput, View } from "react-native"
 import { IComentsProps, IComment } from "./types"
 import styles from "./styles"
-
 
 import * as FeedService from '../../../_services/FeedService'
 import Avatar from "../../Avatar"
@@ -11,7 +10,7 @@ const Comments = (props: IComentsProps) => {
 
   const [comment, setComment] = useState<string>('')
   const [comments, setComments] = useState<IComment[]>(props.comments)
-
+  
   const onComment = async () => {
     try {
       if (props.userLogged && props.userLogged.name && props.userLogged.id) {
@@ -45,6 +44,12 @@ const Comments = (props: IComentsProps) => {
               </Text>
             </View>
           ))}
+        
+        <View>
+          <Text> NOMO COMMENTS</Text>
+        </View>
+  
+
         {props.commentInputActive &&
           <View style={styles.containerInputComment}>
             <Avatar user={props.userLogged} />

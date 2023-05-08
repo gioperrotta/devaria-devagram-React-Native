@@ -7,4 +7,5 @@ export type RootSatckParamList = {
   NewPublication: undefined;
   Profile: IUserData | IUser | undefined;
   EditProfile: IUserData | IUser | undefined;
+  Publication: undefined
 }

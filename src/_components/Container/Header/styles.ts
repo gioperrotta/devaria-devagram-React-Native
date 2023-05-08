@@ -52,22 +52,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginHorizontal: 16
-   },
-   textName: {
+  },
+  textName: {
     fontFamily: 'biennaleBold',
-   },
-   textCancel: {
+  },
+  textCancel: {
     color: colors.grayColor03,
     fontFamily: 'biennale',
     fontSize: 12,
     fontWeight: "500"
-   },
-   textSubmit: {
+  },
+  textSubmit: {
     color: colors.primaryColor,
     fontFamily: 'biennale',
     fontSize: 12,
     fontWeight: "700"
-   }
+  },
+  textSubmitDisabled: {
+    color: colors.grayColor01,
+    fontFamily: 'biennale',
+    fontSize: 12,
+    fontWeight: "700"
+  }
 })
 
 export default styles

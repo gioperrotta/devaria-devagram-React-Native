@@ -47,7 +47,9 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    getProfile()
+    navigation.addListener('focus', () => {
+      getProfile()
+    })
   }, [profileParams])
   return (
     <Container
